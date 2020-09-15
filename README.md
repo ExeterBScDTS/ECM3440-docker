@@ -65,12 +65,18 @@ Windows PowerShell or Linux bash
 $ docker run --rm -v ${PWD}:/data jpbernius/pandoc -o README.docx README.md
 ```
 
-Or try the demo script
+Or try the demo script.
 
 ```shell
 $ convertdoc README.md README.pdf
 ```
 
+Note that Docker rarely runs inside another Docker container, so we need to know where directories are actually mounted when running
+inside a container.
+
+```shell
+$ docker inspect -f "{{ .Mounts }}" `sudo docker ps -q`
+```
 
 ### ffmpeg
 
