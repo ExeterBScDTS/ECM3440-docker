@@ -1,0 +1,12 @@
+#!/bin/bash
+# usage -
+# convertdoc {fromfile} {tofile}
+
+if [ $# != 2 ]
+then
+  echo "Try this"
+  echo "$0 README.md README.pdf"
+  echo ${PWD}
+else
+  docker run --rm -v ${PWD}:/data jpbernius/pandoc -o $2 $1
+fi
